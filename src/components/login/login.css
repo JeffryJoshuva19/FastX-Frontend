@@ -1,0 +1,157 @@
+/* Full page background */
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(135deg, #0077b6, #00b4d8);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Main container */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Card */
+.login-card {
+  background: #ffffffcc;
+  padding: 2rem 3rem;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  backdrop-filter: blur(8px);
+  animation: fadeIn 0.8s ease-in-out;
+  width: 350px;
+  text-align: center;
+}
+
+/* Bus illustration */
+.bus-illustration {
+  margin: 0;
+  padding: 0;
+  line-height: 0;
+  animation: bounce 2s infinite;
+}
+.bus-illustration img {
+  display: block;
+  margin: 0 auto 1rem;
+  max-height: 130px;
+}
+
+/* Titles */
+.login-title {
+  font-size: 1.8rem;
+  color: #023e8a;
+  margin: 0.5rem 0;
+}
+.login-subtitle {
+  color: #555;
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Inputs */
+.form-group {
+  text-align: left;
+  margin-bottom: 1rem;
+}
+.loginInput {
+  width: 100%;
+  max-width: 100%;          /* ✅ never go wider than parent */
+  padding: 0.8rem;
+  border: 2px solid #00b4d8;
+  border-radius: 10px;
+  outline: none;
+  font-size: 1rem;
+  transition: 0.3s;
+  box-sizing: border-box;   /* ✅ includes padding/border in width */
+  display: block;
+}
+
+.loginInput:focus {
+  border-color: #03045e;
+  box-shadow: 0 0 8px rgba(3,4,94,0.3);
+}
+.error-text {
+  font-size: 0.9rem;
+  color: red;
+}
+
+/* Buttons */
+.button-group {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.loginButton, .cancelButton {
+  flex: 1;
+  padding: 0.9rem;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.loginButton {
+  background: #0077b6;
+  color: white;
+}
+.loginButton:hover {
+  background: #023e8a;
+  transform: translateY(-2px);
+}
+.cancelButton {
+  background: #e74c3c;
+  color: white;
+}
+.cancelButton:hover {
+  background: #c0392b;
+}
+
+/* Animations */
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+  .login-card {
+    width: 90%;
+    padding: 1.5rem 2rem;
+  }
+  .login-title {
+    font-size: 1.5rem;
+  }
+  .bus-illustration img {
+    max-height: 90px;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-card {
+    width: 100%;
+    padding: 1rem;
+    border-radius: 15px;
+  }
+  .login-title {
+    font-size: 1.3rem;
+  }
+  .login-subtitle {
+    font-size: 0.8rem;
+  }
+  .bus-illustration img {
+    max-height: 70px;
+  }
+  .loginButton, .cancelButton {
+    font-size: 0.9rem;
+    padding: 0.7rem;
+  }
+}
