@@ -1,12 +1,16 @@
 import { useState } from "react";
-import "./login.css";
+import { useNavigate } from "react-router-dom";
+import "./login.model.css";
 import { loginAPICall } from "../../services/login.service";
 import { LoginModel } from "../../models/login.model";
 import { LoginErrorModel } from "../../models/loginerror.model";
+import {jwtDecode} from "jwt-decode";
+
 
 const Login = () => {
   const [user, setUser] = useState(new LoginModel());
   const [errors, setErrors] = useState(new LoginErrorModel());
+  const navigate = useNavigate();
 
   const changeUser = (eventArgs) => {
     const fieldName = eventArgs.target.name;
@@ -37,13 +41,43 @@ const Login = () => {
 
     loginAPICall(user)
       .then((result) => {
-        console.log(result.data);
-        sessionStorage.setItem("token", result.data.token);
-        sessionStorage.setItem("email", result.data.email);
-        alert("Login success");
+        console.log("Login success:", result.data);
+
+        const token = result.data.token;
+        const decoded = jwtDecode(token);
+        console.log("Decoded token:", decoded);
+
+        // decoded.role = "1"
+let role = decoded.role;
+
+// Map numeric role → string
+if (role === "1") role = "Admin";
+else if (role === "2") role = "BusOperator";
+else role = "User";
+
+// ✅ Save token & user info to sessionStorage
+sessionStorage.setItem("token", result.data.token);
+sessionStorage.setItem("email", result.data.email);
+sessionStorage.setItem("role", role); // save mapped role
+sessionStorage.setItem("userId", decoded.nameid);
+console.log("Saved role:", role);
+sessionStorage.setItem("adminName", result.data.name); // or result.data.fullName depending on API
+console.log(result.data);
+
+alert("Login success 🎉");
+
+// ✅ Navigate based on role
+if (role === "Admin") {
+  navigate("/admin/dashboard");
+} else if (role === "BusOperator") {
+  navigate("/operator/dashboard");
+} else {
+  navigate("/user/dashboard");
+}
+
       })
       .catch((err) => {
-        console.log(err);
+        console.error("Login failed:", err);
         if (err.response?.status === 401)
           alert(err.response.data.errorMessage);
         else alert("Login failed. Please try again.");
@@ -60,7 +94,7 @@ const Login = () => {
       <div className="login-card">
         {/* Bus Illustration */}
         <div className="bus-illustration">
-          <img src="./bus-removebg-preview.png" alt="" />
+          <img src="/bus-removebg-preview.png" alt="bus" />
         </div>
 
         <h1 className="login-title">Bus Ticket Booking</h1>

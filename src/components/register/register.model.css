@@ -1,0 +1,125 @@
+body, html {
+  margin: 0;
+  height: 100%;
+  /*background: linear-gradient(135deg, #0077b6, #00b4d8);*/
+  background:#0077b6;
+}
+/* Wrapper for whole page */
+.register-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 110vh;
+  /*background: linear-gradient(135deg, #0077b6, #00b4d8);*/
+  background:#0077b6;
+  margin: 0;
+  padding: 50px 20px 20px 20px;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Main box */
+.register-box {
+  display: flex;
+  width: 950px;
+  height: 600px;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Left side with image */
+.register-left {
+  flex: 1;
+  background: #023e8a;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  text-align: center;
+}
+
+.register-image {
+  width: 80%;
+  max-width: 300px;
+  margin-bottom: 20px;
+}
+
+.register-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+/* Right side with form */
+.register-right {
+  flex: 1;
+  padding: 40px;
+  background: #f8f9fa;
+}
+
+.form-title {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #023e8a;
+}
+
+/* Form inputs */
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-input {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none; /* ✅ removes blue default border */
+  transition: all 0.3s ease;
+}
+
+.form-input:focus {
+  border-color: #0077b6; /* ✅ custom border */
+  box-shadow: 0 0 6px rgba(0, 119, 182, 0.5); /* ✅ soft glow */
+}
+
+/* Buttons */
+.form-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.btn-primary {
+  background: #0077b6;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-primary:hover {
+  background: #023e8a;
+}
+
+.btn-secondary {
+  background: #ccc;
+  color: black;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-secondary:hover {
+  background: #999;
+}

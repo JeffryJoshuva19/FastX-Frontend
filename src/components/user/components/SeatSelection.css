@@ -1,0 +1,36 @@
+.seat-container {
+  display: grid;
+  grid-template-columns: repeat(4, 50px);
+  gap: 12px;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.seat {
+  width: 45px;
+  height: 45px;
+  background: #e0e0e0;
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-weight: bold;
+  color: #333;
+  transition: all 0.2s;
+}
+
+.seat:hover {
+  background: #cfcfcf;
+}
+
+.seat.selected {
+  background: #2e7d32;
+  color: white;
+}
+
+.seat.booked {
+  background: #d32f2f;
+  color: white;
+  cursor: not-allowed;
+}
