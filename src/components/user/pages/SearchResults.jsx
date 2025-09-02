@@ -1,18 +1,52 @@
 import React from "react";
-import BusCard from "../components/BusCard";
-import "../user.css";
+import { Link, useLocation } from "react-router-dom";
+import "./SearchResults.css";
 
 const SearchResults = () => {
-  const buses = [
-    { id: 1, name: "Volvo AC", from: "Chennai", to: "Bangalore", departure: "10:00 AM", fare: 500 },
-    { id: 2, name: "Sleeper", from: "Chennai", to: "Coimbatore", departure: "11:00 PM", fare: 700 }
-  ];
+  const location = useLocation();
+  const buses = location.state?.buses || [];
 
   return (
-    <div className="results-page">
+    <div className="search-results-page">
       <h2>Available Buses</h2>
-      <div className="bus-list">
-        {buses.map((bus) => <BusCard key={bus.id} bus={bus} />)}
+      <div className="search-results-wrapper">
+        <div className="bus-cards">
+          {buses.length > 0 ? (
+            buses.map((bus) => (
+              <div key={bus.scheduleId} className="bus-card">
+                <div className="bus-left">
+                  <h3>{bus.busName}</h3>
+                  <p className="bus-type">{bus.busType}</p>
+                  <p className="timing">
+                    {new Date(bus.departureDateTime).toLocaleTimeString([], {
+                      hour: "2-digit",
+                      minute: "2-digit",
+                    })}{" "}
+                    -{" "}
+                    {new Date(bus.arrivalDateTime).toLocaleTimeString([], {
+                      hour: "2-digit",
+                      minute: "2-digit",
+                    })}
+                  </p>
+                  <p className="seats">Seats Available: {bus.availableSeats}</p>
+                </div>
+                
+                <div className="bus-right">
+                  <h3 className="fare">₹{bus.fare}</h3>
+                  <Link
+                    to={`/user/seat-selection/${bus.scheduleId}`}
+                    state={{ bus }} // Pass the bus info here
+                    className="book-btn"
+                  >
+                    Book Now
+                  </Link>
+                </div>
+              </div>
+            ))
+          ) : (
+            <p>No buses found for the selected route.</p>
+          )}
+        </div>
       </div>
     </div>
   );

@@ -1,0 +1,88 @@
+.confirmation-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 90vh;
+  background: #f0f4f8;
+  padding: 20px;
+}
+
+.confirmation-card {
+  background: white;
+  max-width: 500px;
+  width: 100%;
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  text-align: center;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.confirmation-card h2 {
+  color: #4fc3f7;
+  margin-bottom: 10px;
+}
+
+.booking-id {
+  color: #555;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.booking-details p {
+  margin: 8px 0;
+  color: #333;
+  font-size: 16px;
+}
+
+.confirmation-actions {
+  margin-top: 25px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.confirmation-actions button {
+  padding: 12px 25px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.btn-home {
+  background-color: #4fc3f7;
+  color: #1e1e2f;
+}
+
+.btn-home:hover {
+  background-color: #2196f3;
+}
+
+.btn-bookings {
+  background-color: #1e1e2f;
+  color: #fff;
+}
+
+.btn-bookings:hover {
+  background-color: #333;
+}
+
+@media (max-width: 500px) {
+  .confirmation-card {
+    padding: 20px;
+  }
+  .booking-details p {
+    font-size: 14px;
+  }
+  .confirmation-actions button {
+    width: 100%;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px);}
+  to { opacity: 1; transform: translateY(0);}
+}

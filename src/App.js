@@ -4,7 +4,7 @@ import OperatorApp from "./components/operator/App";
 import AdminApp from "./components/admin/App";
 import Login from "./components/login/login";
 import Register from "./components/register/register";
-import UserRoutes from "./components/user/UserRoutes";
+import UserApp from "./components/user/App";
 import ProtectedRoute from "./utils/ProtectedRoute";
 
 function App() {
@@ -33,7 +33,7 @@ function App() {
         {/* User Dashboard (only for users) */}
         <Route
           path="/user/*"
-          element={<ProtectedRoute element={<UserRoutes />} allowedRoles={["User"]} />}
+          element={<ProtectedRoute element={<UserApp />} allowedRoles={["User"]} />}
         />
       </Routes>
     </Router>

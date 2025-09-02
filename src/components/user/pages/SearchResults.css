@@ -1,0 +1,152 @@
+/* Page Container */
+.search-results-page {
+  font-family: 'Poppins', sans-serif;
+  padding: 50px 20px;
+  background: linear-gradient(135deg, #e0f7fa, #ffffff);
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* center horizontally */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Center wrapper inside container */
+.search-results-wrapper {
+  width: 100%;
+  max-width: 1200px;  /* large container like MyBookings */
+  margin: 0 auto;     /* ✅ truly center */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* center content inside */
+}
+
+/* Page Title */
+.search-results-page h2 {
+  font-size: 36px;
+  font-weight: 700;
+  color: #0d47a1;
+  margin-bottom: 40px;
+  text-align: center;
+  letter-spacing: 0.7px;
+}
+
+/* Bus Cards Wrapper */
+.bus-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* center the cards */
+  gap: 30px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Individual Bus Card */
+.bus-card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 25px 30px;
+  width: 100%;
+  max-width: 500px;       /* bigger cards */
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  transition: all 0.4s ease;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.bus-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+}
+
+/* Left Section */
+.bus-left h3 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1a237e;
+  margin-bottom: 8px;
+}
+
+.bus-type, .timing, .seats {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 6px;
+}
+
+/* Right Section */
+.bus-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.fare {
+  font-size: 24px;
+  font-weight: bold;
+  color: #00bfa5;
+  margin-bottom: 15px;
+}
+
+/* Book Button */
+.book-btn {
+  background: linear-gradient(135deg, #1a237e, #0d47a1);
+  color: #fff;
+  padding: 12px 22px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.book-btn:hover {
+  background: linear-gradient(135deg, #00bfa5, #26a69a);
+  color: #fff;
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .bus-card {
+    max-width: 90%;
+    padding: 22px;
+  }
+
+  .fare {
+    font-size: 22px;
+  }
+
+  .book-btn {
+    padding: 10px 20px;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .bus-card {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 95%;
+    max-width: 100%;
+    padding: 18px 20px;
+  }
+
+  .bus-right {
+    width: 100%;
+    align-items: flex-start;
+    margin-top: 15px;
+  }
+
+  .fare {
+    font-size: 20px;
+  }
+
+  .book-btn {
+    width: 100%;
+    text-align: center;
+  }
+}
